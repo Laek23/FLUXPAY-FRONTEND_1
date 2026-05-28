@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.login-container {
+  height: 100vh;
+  background: url("https://images.unsplash.com/photo-1522202176988-66273c2fd55f")
+    no-repeat center center/cover;
+  display: flex;
+}
+
+/* OVERLAY OSCURO */
+.login-overlay {
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  width: 100%;
+}
+
+/* LADO IZQUIERDO */
+.login-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  color: white;
+}
+
+.left-content {
+  max-width: 450px;
+}
+
+.left-content h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.left-content span {
+  color: #3b82f6;
+}
+
+.left-content p {
+  margin-bottom: 30px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.btn-register {
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-register:hover {
+  background: #162c6b;
+}
+
+/* LADO DERECHO */
+.login-right {
+  width: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* CARD */
+.login-card {
+  width: 100%;
+  background: #0f2f5f;
+  padding: 50px 40px;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+.login-card h2 {
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* LOGO */
+.logo-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.login-logo {
+  width: 160px;
+  border-radius: 15px;
+  background: white;
+  padding: 10px;
+}
+
+/* INPUTS */
+.login-card input {
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+}
+
+/* BOTÓN LOGIN */
+.btn-login {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-login:hover {
+  background: #1e40af;
+}
+
+/* OLVIDÉ */
+.forgot {
+  margin-top: 10px;
+  font-size: 13px;
+  text-align: center;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 992px) {
+  .login-overlay {
+    flex-direction: column;
+  }
+
+  .login-left {
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .login-right {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .left-content h1 {
+    font-size: 34px;
+  }
+}
