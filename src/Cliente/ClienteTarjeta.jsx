@@ -12,9 +12,32 @@ import { FaHome,FaSignOutAlt,FaHistory,FaCog, } from "react-icons/fa";
 import { CiCreditCard1 } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
 import CerrarSesion from "../CerrarSesion";
+import ImpulsaPlayCliente from "./ImpulsaPlayCliente.jpeg";
+
 
 function ClienteTarjeta() {
   const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+
+  const [user, setUser] = useState({
+    nombre: "",
+    correo: ""
+  });
+
+  useEffect(() => {
+    axios.get("http://127.0.0.1:8000/api/cliente/configuracion", {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then((res) => {
+        setUser({
+          nombre: res.data.nombre,
+          correo: res.data.correo
+        });
+      })
+      .catch((err) => console.log(err));
+  }, [token]);
 
   const [mostrar, setMostrar] = useState(false);
   const [tarjetas, setTarjetas] = useState([]);
@@ -82,7 +105,7 @@ const borrarTarjeta = async (id) => {
 <aside className="admin-sidebar">
   <div>
     <div className="admin-logo-container">
-      <img src="/fluxpay.jpg" alt="FluxPay Logo" className="admin-logo" />
+<img src={ImpulsaPlayCliente} alt="Impulsa Play" className="admin-logo" />
     </div>
 
     <ul className="sidebar-menu">
@@ -127,11 +150,11 @@ const borrarTarjeta = async (id) => {
 <div className="main-content">
 <div className="container-fluid px-4 pt-4">
   <div className="bg-white shadow rounded-4 p-3">
-    <Navbar
-      nombre="Alexander Castillo"
-      correo="Alexander.Correo@Gmail.com"
-      rol="Cliente"
-    />
+<Navbar
+  nombre={user.nombre}
+  correo={user.correo}
+  rol="Cliente"
+/>
   </div>
 </div>
 <div className="text-center mt-4 mt-md-5">

@@ -13,7 +13,7 @@ import {FaHome,FaStore,FaChartBar,FaHeadset,FaSignOutAlt,FaSearch,FaBell,FaDolla
 import { CiCreditCard1 } from "react-icons/ci";
 import Axios from "axios";
 import CerrarSesion from "../CerrarSesion";
-
+import ImpulsaPlayCliente from "./ImpulsaPlayCliente.jpeg";
 // Imagen local
 import FotoPerfil from "./FotoPerfil.png";
 
@@ -60,7 +60,7 @@ function ClienteConfiguracion() {
 <aside className="admin-sidebar">
   <div>
     <div className="admin-logo-container">
-      <img src="/fluxpay.jpg" alt="FluxPay Logo" className="admin-logo" />
+<img src={ImpulsaPlayCliente} alt="Impulsa Play" className="admin-logo" />
     </div>
 
     <ul className="sidebar-menu">
