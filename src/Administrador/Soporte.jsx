@@ -113,7 +113,7 @@ export default function Soporte() {
       <aside className="admin-sidebar">
         <div>
           <div className="admin-logo-container">
-            <img src="/fluxpay.jpg" alt="FluxPay Logo" className="admin-logo" />
+            <img src="/impulsaPay.jpg" alt="ImpulsaPay Logo" className="admin-logo" />
           </div>
           <ul className="sidebar-menu">
             <li onClick={() => navigate("/admin/dashboard")}><FaHome /> Dashboard</li>

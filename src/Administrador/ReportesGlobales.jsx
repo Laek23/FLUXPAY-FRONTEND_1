@@ -91,7 +91,7 @@ function ReportesGlobales() {
 
     saveAs(
       data,
-      `Reporte_FluxPay_${filtroActivo}_${new Date().toLocaleDateString()}.xlsx`
+      `Reporte_ImpulsaPay_${filtroActivo}_${new Date().toLocaleDateString()}.xlsx`
     );
   };
 
@@ -113,7 +113,7 @@ function ReportesGlobales() {
         <div>
 
           <div className="admin-logo-container">
-            <img src="/fluxpay.jpg" alt="FluxPay" className="admin-logo" />
+            <img src="/impulsaPay.jpg" alt="ImpulsaPay" className="admin-logo" />
           </div>
 
           <ul className="sidebar-menu">

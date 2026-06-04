@@ -74,7 +74,7 @@ export default function DetalleNegocio() {
       <aside className="admin-sidebar">
         <div>
           <div className="admin-logo-container">
-            <img src="/fluxpay.jpg" alt="FluxPay Logo" className="admin-logo" />
+            <img src="/impulsaPay.jpg" alt="ImpulsaPay Logo" className="admin-logo" />
           </div>
 
           <ul className="sidebar-menu">

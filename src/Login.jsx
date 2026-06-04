@@ -73,7 +73,7 @@ export default function Login() {
         <div className="login-left">
           <div className="left-content">
             <h1>
-              Bienvenido a <span>FluxPay</span>
+              Bienvenido a <span>ImpulsaPay</span>
             </h1>
             <p>
               Gestiona tus negocios, analiza ingresos y controla
@@ -94,8 +94,8 @@ export default function Login() {
 
             <div className="logo-box">
               <img
-                src="/fluxpay.jpg"
-                alt="FluxPay Logo"
+                src="/impulsaPay.jpg"
+                alt="impulsaPay Logo"
                 className="login-logo"
               />
             </div>

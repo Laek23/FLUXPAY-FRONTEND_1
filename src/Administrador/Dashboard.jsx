@@ -13,6 +13,15 @@ export default function DashboardAdmin() {
   const navigate = useNavigate();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [fechaHora, setFechaHora] = useState(new Date());
+
+useEffect(() => {
+  const timer = setInterval(() => {
+    setFechaHora(new Date());
+  }, 1000);
+
+  return () => clearInterval(timer);
+}, []);
 
   useEffect(() => {
     fetchDashboard();
@@ -50,6 +59,18 @@ export default function DashboardAdmin() {
       </span>
     );
   };
+  const fechaActual = fechaHora.toLocaleDateString("es-MX", {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric"
+});
+
+const horaActual = fechaHora.toLocaleTimeString("es-MX", {
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit"
+});
 
   const chartData = {
     series: [{ name: "Ingresos", data: data?.grafica?.map(i => parseFloat(i.total).toFixed(2)) || [] }],
@@ -85,7 +106,7 @@ export default function DashboardAdmin() {
       <aside className="admin-sidebar">
         <div>
           <div className="admin-logo-container">
-            <img src="/fluxpay.jpg" alt="FluxPay Logo" className="admin-logo" />
+            <img src="/impulsaPay.jpg" alt="ImpulsaPay Logo" className="admin-logo" />
           </div>
           <ul className="sidebar-menu">
             <li className="active" onClick={() => navigate("/admin/dashboard")}><FaHome /> Dashboard</li>
@@ -105,22 +126,46 @@ export default function DashboardAdmin() {
       <div className="admin-main">
         {/* HEADER CON DISEÑO EXACTO DE LA IMAGEN */}
         <header className="modern-header">
-          <div className="header-left">
-            <h1>Dashboard de Administrador</h1>
-            <p>Bienvenido de nuevo, {data?.usuario_nombre?.split(' ')[0] || "Administrador"}</p>
-          </div>
-          <div className="header-right">
-            <div className="user-info-text">
-              <span className="user-name-header">{data?.usuario_nombre || "Usuario"}</span>
-              <span className="user-email-header">{data?.usuario_email || "admin@fluxpay.com"}</span>
-            </div>
-            <div className="avatar-container">
-              <img src="https://i.pravatar.cc/150?u=admin" alt="Avatar" className="p-avatar-img" />
-              <span className="online-indicator"></span>
-            </div>
-            <FaBell className="bell-icon" title="Notificaciones" />
-          </div>
-        </header>
+  <div className="header-content">
+    <div className="header-left">
+  <span className="dashboard-badge">
+    Panel Administrativo
+  </span>
+
+  <h1>Dashboard</h1>
+
+  <p>
+    Bienvenido nuevamente,
+    <strong>
+      {" "}
+      {data?.usuario_nombre?.split(" ")[0] || "Administrador"}
+    </strong>
+  </p>
+
+  <div className="fecha-hora-dashboard">
+    <span>{fechaActual}</span>
+    <span>{horaActual}</span>
+  </div>
+</div>
+
+    <div className="header-right">
+      <button className="notification-btn">
+        <FaBell />
+      </button>
+
+      <div className="profile-card">
+        <div className="profile-avatar">
+          {data?.usuario_nombre?.charAt(0) || "A"}
+        </div>
+
+        <div className="profile-info">
+          <span>{data?.usuario_nombre || "Administrador"}</span>
+          <small>{data?.usuario_email}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
         <main className="admin-dashboard">
           <div className="stats-grid">
@@ -140,6 +185,10 @@ export default function DashboardAdmin() {
               <h4>Total acumulado</h4>
               <p>{formatMoney(data?.ingresosTotales)}</p>
             </div>
+            <div className="stat-card">
+  <h4>Tickets emitidos</h4>
+  <p>{data?.ticketsTotales || 0}</p>
+</div>
           </div>
 
           <div className="middle-section">

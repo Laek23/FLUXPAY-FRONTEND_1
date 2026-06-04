@@ -54,10 +54,10 @@ export default function Register() {
 
       {/* IZQUIERDA */}
       <div className="register-left">
-        <img src="/fluxpay.jpg" alt="FluxPay Logo" className="hero-logo" />
+        <img src="/impulsaPay.jpg" alt="ImpulsaPay Logo" className="hero-logo" />
 
         <h1>
-          Impulsa tu negocio con <span>FluxPay</span>
+          Impulsa tu negocio con <span>ImpulsaPay</span>
         </h1>
 
         <p>
