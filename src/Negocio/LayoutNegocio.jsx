@@ -29,7 +29,7 @@ export default function LayoutNegocio() {
                     <div className="admin-logo-container">
                         <div className="sidebar-logo-wrapper">
                             <img
-                                src="/fluxpay.jpg"
+                                src="/ImpulsaPay.jpeg"
                                 alt="FluxPay Logo"
                                 className="logo-img"
                             />
